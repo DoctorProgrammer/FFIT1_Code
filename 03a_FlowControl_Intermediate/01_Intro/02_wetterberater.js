@@ -24,8 +24,6 @@ if (temp === undefined){
     } else if (temp <= 0 || temp >= 40) {
         console.log('Bleib zuhause. Es ist super kalt oder sehr heiss!');
     } else {
-        console.log('Eine Empfehlung fehlt. Am besten selber programmieren!');
+        console.log('Das Wetter ist weder kühl noch warm!');
     }
-
 }
-

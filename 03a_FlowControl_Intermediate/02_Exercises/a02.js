@@ -26,55 +26,34 @@ With age 21: You will get a 33.33% discount! Pay CHF 16.67.
 $ node a01-A.js 50 65
 With age 65: You will get a 33.33% discount! Pay CHF 16.67.
  */
-'use strict';
 //Argumente auslesen (parsen)
-//??
-//??
-//??
-//??
+let args = process.argv.slice(2);
+let price = args[0];
+let age = args[1];
+let isStudent = args[2];
 
 //message variable
 let message;
-//if age and price is undefined ...
-//??
-    //show message
-//??
-//else
-//??
+if(age === undefined || price === undefined) {
+    message = `You need to define the price, age and whether you are a student or not! Try again.`;
+} else {
     let discount;
-    // If 6 under print message free entrance
-//??
-        //show message
-//??
-//??
-    //else if age between 6 and 16 then set discount to 50%
-//??
-        //set discount
-//??
-        //show message
-//??
-//??
-//??
-//??
-    //else if 65 or older or student then set discount to 33%
-//??
-        //set discount
-//??
-        //show message
-//??
-//??
-//??
-    //else
-//??
-        //else no discount
-//??
-        //show message
-//??
-//??
-//??
-//Output what the customer has to pay
-//??
+    
+    if (age <= 6) {
+        discount = 100;
+        message = `With ${age}: Free entrance!`;
+    } 
+    else if (age <= 16) {
+        discount = 50;
+        message = `With age ${age}: You will get a ${discount}.00% discount! Pay CHF ${price * (100 - discount) / 100}.`;
+    } 
+    else if (age >= 65 || isStudent === 'true') {
+        discount = 33.33;
+        message = `With age ${age}: You will get a ${discount}% discount! Pay CHF ${price * (100 - discount) / 100}.`;
+    } 
+    else {
+        message = `With age ${age}: NO discount! Pay CHF ${price}.`;
+    }
+}
 
-
-
-
+console.log(message);

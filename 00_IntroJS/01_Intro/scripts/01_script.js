@@ -1,1 +1,1 @@
-console.log('Hello World 2!');
+alert('Hello World from external JavaScript!');
